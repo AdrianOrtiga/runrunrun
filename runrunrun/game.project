@@ -1,5 +1,6 @@
 [project]
 title = runrunrun
+dependencies = https://github.com/britzl/platypus/archive/master.zip
 
 [bootstrap]
 main_collection = /main/main.collectionc

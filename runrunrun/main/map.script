@@ -1,7 +1,7 @@
 local speed = -300
 
 function init(self)
-	self.running = true
+	self.running = false
 end
 
 function final(self)
@@ -20,15 +20,13 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("collision_response") then
-		if message.own_group == hash("ground") then
-			msg.post("/background#background", "running")
-			msg.post("/player#player", "running")
-		elseif message.own_group == hash("wall") then
-			msg.post("/background#background", "stop_moving")
-			msg.post("/player#player", "stop_moving")
-			self.running = false
-		end
+	if message_id == hash("ground") then
+		msg.post("/background#background", "running")
+		self.running = true
+	elseif message_id == hash("wall") then
+		msg.post("/background#background", "stop_moving")
+		msg.post("/player#player", "stop_moving")
+		self.running = false
 	end
 end
 
