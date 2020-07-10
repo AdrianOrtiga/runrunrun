@@ -1,0 +1,212 @@
+image: "/assets/images/tilesets/forest/forest_tileset.png"
+tile_width: 128
+tile_height: 128
+tile_margin: 0
+tile_spacing: 0
+collision: "/assets/images/tilesets/forest/forest_tileset.png"
+material_tag: "tile"
+convex_hulls {
+  index: 0
+  count: 7
+  collision_group: "ground"
+}
+convex_hulls {
+  index: 7
+  count: 4
+  collision_group: "ground"
+}
+convex_hulls {
+  index: 11
+  count: 7
+  collision_group: "ground"
+}
+convex_hulls {
+  index: 18
+  count: 4
+  collision_group: "ground"
+}
+convex_hulls {
+  index: 22
+  count: 7
+  collision_group: "ground"
+}
+convex_hulls {
+  index: 29
+  count: 4
+  collision_group: "ground"
+}
+convex_hulls {
+  index: 33
+  count: 7
+  collision_group: "ground"
+}
+convex_hulls {
+  index: 40
+  count: 4
+  collision_group: "ground"
+}
+convex_hulls {
+  index: 44
+  count: 4
+  collision_group: "wall"
+}
+convex_hulls {
+  index: 48
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 52
+  count: 4
+  collision_group: "wall"
+}
+convex_hulls {
+  index: 56
+  count: 4
+  collision_group: "ground"
+}
+convex_hulls {
+  index: 60
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 64
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 68
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 72
+  count: 4
+  collision_group: "ground"
+}
+convex_hulls {
+  index: 76
+  count: 8
+  collision_group: "wall"
+}
+convex_hulls {
+  index: 84
+  count: 6
+  collision_group: ""
+}
+convex_hulls {
+  index: 90
+  count: 8
+  collision_group: "wall"
+}
+convex_hulls {
+  index: 98
+  count: 0
+  collision_group: ""
+}
+convex_hulls {
+  index: 98
+  count: 8
+  collision_group: ""
+}
+convex_hulls {
+  index: 106
+  count: 6
+  collision_group: ""
+}
+convex_hulls {
+  index: 112
+  count: 8
+  collision_group: ""
+}
+convex_hulls {
+  index: 120
+  count: 0
+  collision_group: ""
+}
+convex_hulls {
+  index: 120
+  count: 10
+  collision_group: "ground"
+}
+convex_hulls {
+  index: 130
+  count: 4
+  collision_group: "ground"
+}
+convex_hulls {
+  index: 134
+  count: 10
+  collision_group: "ground"
+}
+convex_hulls {
+  index: 144
+  count: 0
+  collision_group: ""
+}
+convex_hulls {
+  index: 144
+  count: 10
+  collision_group: ""
+}
+convex_hulls {
+  index: 154
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 158
+  count: 10
+  collision_group: ""
+}
+convex_hulls {
+  index: 168
+  count: 0
+  collision_group: ""
+}
+convex_hulls {
+  index: 168
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 172
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 176
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 180
+  count: 7
+  collision_group: ""
+}
+convex_hulls {
+  index: 187
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 191
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 195
+  count: 4
+  collision_group: ""
+}
+convex_hulls {
+  index: 199
+  count: 7
+  collision_group: ""
+}
+collision_groups: "ground"
+collision_groups: "wall"
+extrude_borders: 1
+inner_padding: 0
+sprite_trim_mode: SPRITE_TRIM_MODE_OFF

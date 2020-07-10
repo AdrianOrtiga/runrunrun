@@ -1,0 +1,4 @@
+tile_set: "/main/characters.atlas"
+default_animation: "ninja_girl_run"
+material: "/builtins/materials/sprite.material"
+blend_mode: BLEND_MODE_ALPHA
