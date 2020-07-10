@@ -1,0 +1,21 @@
+local speed = -10
+
+function update(self, dt)
+	local p = go.get_position()
+	-- apply the speed
+	p.x = p.x + speed * dt
+
+	if p.x <= -1515 then
+		print(p.x)
+		p.x = 0
+	end
+	go.set_position(p)
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("stop_moving") then
+		speed = 0
+	elseif on_message == hash("running") then
+		speed = -10
+	end
+end

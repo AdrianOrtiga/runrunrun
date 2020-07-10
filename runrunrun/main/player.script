@@ -1,0 +1,101 @@
+local platypus = require "platypus.platypus"
+
+local JUMP = hash("touch")
+local TOGGLE_DEBUG = hash("toggle_debug")
+local TOGGLE_PROFILE = hash("toggle_profile")
+
+local ANIM_RUN = hash("run")
+local ANIM_JUMP = hash("jump")
+local ANIM_IDLE = hash("idle")
+
+local on_ground = false
+
+local function play_animation(self, animation)
+	if self.current_animation ~= animation then
+		msg.post("#sprite", "play_animation", { id = animation })
+		self.current_animation = animation
+	end
+end
+
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	self.input_state = {}
+	self.platypus = platypus.create({collisions = {
+		separation = platypus.SEPARATION_SHAPES,
+		groups = {
+			[hash("ground")] = platypus.DIR_ALL,
+			[hash("wall")] = platypus.DIR_ALL,
+			--[hash("onewayplatform")] = platypus.DIR_DOWN,
+			--[hash("onewaydoor")] = platypus.DIR_LEFT,
+		},
+		left = 43, right = 43, top = 56, bottom = 56
+	},
+	gravity = -800,
+	max_velocity = 580,
+	allow_double_jump = false,
+	allow_wall_jump = true,
+	allow_wall_slide = true,
+	wall_slide_gravity = -50
+	--debug = true,
+	})
+	
+end
+
+function final(self)
+	-- Add finalization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end
+
+function update(self, dt)
+	
+	if on_ground then
+		self.platypus.right(300)
+	end
+	
+	self.platypus.update(dt)
+end
+
+function on_message(self, message_id, message, sender)
+	self.platypus.on_message(message_id, message)
+	
+	if message_id == platypus.WALL_CONTACT then
+		msg.post("/map#map", "wall")
+	elseif message_id == platypus.GROUND_CONTACT then
+		msg.post("/map#map", "ground")
+		on_ground = true
+	end
+end
+
+function on_input(self, action_id, action)
+	if not action_id then return end
+	if action.pressed then
+		self.input_state[action_id] = true
+	elseif action.released then
+		self.input_state[action_id] = nil
+	end
+
+	if action_id == hash("toggle_profile") then
+		if action.released then
+			msg.post("@system:", "toggle_profile")
+		end
+		return
+	end
+
+	if action_id == JUMP then
+		if action.pressed then
+			self.platypus.jump(300)
+		elseif action.released then
+			self.platypus.abort_jump()
+		end
+	elseif action_id == TOGGLE_DEBUG and action.released then
+		self.platypus.toggle_debug()
+		msg.post("@system:", "toggle_physics_debug")
+	end
+end
+
+function on_reload(self)
+	-- Add reload-handling code here
+	-- Learn more: https://defold.com/manuals/hot-reload/
+	-- Remove this function if not needed
+end
